@@ -1,0 +1,36 @@
+/* Base styles that MUI's CssBaseline doesn't cover. Theme colors live in theme.ts. */
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Toolbar popups size to their content and cap out at 800x600. Pin the width and let
+   <body> scroll internally, so its scrollbar sits inside the 380px instead of widening
+   the popup with a horizontal scrollbar. (html needs overflow:hidden, otherwise body's
+   overflow propagates to the viewport.) */
+html[data-view="popup"] {
+  overflow: hidden;
+}
+
+html[data-view="popup"] body {
+  width: 380px;
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
